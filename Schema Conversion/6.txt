@@ -1,0 +1,17 @@
+PROBLEM
+-------------------
+Convert the ERD shown in Figure 3 into tables.  List the conversion rules used and table design. For each table, you should list the primary key, foreign keys, other columns, and NOT NULL constraints for foreign keys if necessary. You do not need to write CREATE TABLE statements.
+---------------------------------------------------------
+
+Owner(Ownid,OwnName,OwnPhone)
+Property(Propid,BidgName,UnitNo,Bdrms)
+
+Shares(Ownid,Propid,StartWeek,EndWeek)
+foreign key(Ownid) references Owner
+foreign key(Propid) references Property
+
+
+Conversion rules..
+-------------------------
+Use the entity type rule to convert each entity type.
+Use the 1-M relationship rule for convert the shares relationships.
