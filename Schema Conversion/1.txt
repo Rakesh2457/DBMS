@@ -1,0 +1,25 @@
+PROBLEM
+----------
+For the ERD in Figure 1, you should indicate the applications of the entity type rule. For each entity type rule application, you should identify the table name, primary key, and other columns.
+You do not need to write CREATE TABLE statements.
+----------------------------------------------------------
+
+
+Student(StdNo,StdName,StdCity,StdState,StdZip,StdEmail)
+PK :- StdNo
+
+Institution(InstID,InstName,InstMascot)
+PK :- InstID
+
+Lender(LenderNo,LendName)
+PK :- LenderNo
+
+Loan(LoanNo,ProcDate,DisbMethod,DisbBank,DateAuth,NoteValue,Subsidized,Rate)
+PK :- LoanNo
+
+DisbuseLine(DateSent,Amount,OrigFee,GuarFee)
+PK :- DateSent
+
+Conversion Rules
+-----------------
+---> Use the entity type rule to convert each entity type
