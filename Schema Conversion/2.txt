@@ -1,0 +1,35 @@
+PROBLEM
+----------------------------------------------------------
+For the ERD in Figure 1, you should indicate applications of the 1-M relationship rule. For each 1-M relationship rule application, you should indicate the changes to the tables you listed in 
+problem 1 including foreign key columns and NOT NULL constraints for foreign keys if necessary.
+-----------------------------------------------------------------------------------------------------------
+
+
+
+Student(StdNo,StdName,StdCity,StdState,StdZip,StdEmail)
+PK :- StdNo
+
+Institution(InstID,InstName,InstMascot)
+PK :- InstID
+
+Lender(LenderNo,LendName)
+PK :- LenderNo
+
+Loan(LoanNo,StdNo,InstID,LenderNo,ProcDate,DisbMethod,DisbBank,DateAuth,NoteValue,Subsidized,Rate)
+PK :- LoanNo
+---->
+foreign key(StdNo) references Student
+foreign key(InstID) references Institution
+foreign key(LenderNo) references Lender
+StdNo NOT NULL
+InstID NOT NULL
+LenderNo NOT NULL
+
+DisbuseLine(LoanNo,DateSent,Amount,OrigFee,GuarFee)
+PK :- DateSent
+foreign key(LoanNo) references Loan
+
+Conversion rules..
+-------------------------
+Use the entity type rule to convert each entity type.
+Use the 1-M relationship rule for all relationships.
