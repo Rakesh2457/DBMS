@@ -1,0 +1,34 @@
+PROBLEM
+-------------------
+For the ERD in Figure 1, you should indicate applications of the identifying relationship rule. For each identifying relationship rule application, you should indicate the changes to the tables you listed in problem 2.
+-----------------------------------------
+
+Student(StdNo,StdName,StdCity,StdState,StdZip,StdEmail)
+PK :- StdNo
+
+Institution(InstID,InstName,InstMascot)
+PK :- InstID
+
+Lender(LenderNo,LendName)
+PK :- LenderNo
+
+Loan(LoanNo,StdNo,InstID,LenderNo,ProcDate,DisbMethod,DisbBank,DateAuth,NoteValue,Subsidized,Rate)
+PK :- LoanNo
+---->
+foreign key(StdNo) references Student
+foreign key(InstID) references Institution
+foreign key(LenderNo) references Lender
+StdNo NOT NULL
+InstID NOT NULL
+LenderNo NOT NULL
+
+DisbuseLine(LoanNo,DateSent,Amount,OrigFee,GuarFee)
+PK :- DateSent
+foreign key(LoanNo) references Loan
+
+Conversion rules..
+-------------------------
+Use the entity type rule to convert each entity type.
+Use the 1-M relationship rule for all relationships.
+Use M-M relationship rule[not needed].
+use the identification dependency rule to make LoanNo a component of the Primary Key of DisburseLine.The Primary Key of the DisburseLine table is a Combination of LoanNo and DateSent. a not null constraint is not needed for DisburseLine. LoanNo because this column is part of the primary key of DisburseLine.
