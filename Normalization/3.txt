@@ -1,0 +1,29 @@
+PROBLEM
+----------------------------------------
+    3. You should determine if the Student, Lender, and Institution tables are in BCNF. In the Lender table, LenderName is unique. In the Institution table, InstName is unique. In the Student table, StdEmail is unique. The primary key of each table is underlined. The primary key of each table is underlined. You should explain your decision and modify the table design by splitting tables or adding constraints if necessary.
+Student (StdNo, StdName, StdEmail, StdAddress, StdCity, StdState, StdZip )
+
+Lender(LenderNo, LenderName)
+Institution(InstNo, InstName, InstMascot)
+--------------------------------------------------------------------------
+
+
+
+Student (StdNo, StdName, StdEmail, StdAddress, StdCity, StdState, StdZip )
+
+Lender(LenderNo, LenderName)
+Institution(InstNo, InstName, InstMascot)
+
+
+Answer:
+Student (StdNo, StdName, StdEmail, StdAddress, StdCity, StdState, StdZip )
+	Unique(StdEmail)
+Reason: In the Student table, StdEmail is unique, violate BCNF
+
+Lender(LenderNo, LenderName)
+	Unique(LenderName)
+Reason: In the Lender table, LenderName is unique
+
+Institution(InstNo, InstName, InstMascot)
+	UNIQUE(InstName)
+Reason:  In the Institution table, InstName is unique,  violate BCNF
