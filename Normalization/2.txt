@@ -1,0 +1,45 @@
+PROBLEM
+---------------------
+    2. Apply the simple BCNF procedure to define BCNF tables using the FD list Table 2. Show the result of each step in your analysis. For the final result, you should show the tables, columns, primary key of each table, foreign keys, and unique constraints. You do not need to provide CREATE TABLE statements.
+------------------------------------------------
+
+
+
+TABLE 2: Functional dependencies for the big patient table
+
+PatNo -> PatAge
+PatZip9 ->  PatCity
+VisitNo  ->  VisitDate 
+PatNo ->  PatZip9 
+ProvNo ->  ProvSpecialty
+VisitNo  ->  PatNo
+VisitNo, ProvNo ->  Diagnosis
+ProvNo -> ProvEmail
+ProvEmail -> ProvNo
+
+Solution
+-----------
+
+List of FDs
+
+    PatNo                    -> PatAge, PatZip
+    PatZip                    -> PatCity
+    VisitNo                  -> PatNo, VisitDate
+    ProvNo                  -> ProvSpecialty, ProvEmail
+    ProvNo, VisitNo   -> Diagnosis 
+BCNF Tables
+
+Table 1(PatNo, PatAge, PatZip)
+	FOREIGN KEY(PatZip) REFERENCES Table1-1
+
+Table 1.1(PatZip, PatCity)
+
+Table 2(VisitNo, PatNo, VisitDate)
+	FOREIGN KEY(PatNo) REFERENCES Table 1
+
+Table 3(ProvNo, ProvSpecialty, ProvEmail)
+	UNIQUE(ProvEmail)
+
+Table 4(ProvNo, VisitNo, Diagnosis)
+	FOREIGN KEY (ProvNo) REFERENCES Table 3
+	FOREIGN KEY(VisitNo) REFERENCES Table 2
