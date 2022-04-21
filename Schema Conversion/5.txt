@@ -1,0 +1,15 @@
+PROBLEM
+------------------
+    5. Convert the ERD shown in Figure 2 into tables.  List the conversion rules used and table design. For each table, you should list the primary key, foreign keys, other columns, and NOT NULL constraints for foreign keys if necessary. You do not need to write CREATE TABLE statements.
+
+Figure 2: ERD for Conversion Problem 5
+-----------------------------------------------------------------
+
+Account(Acctid,decAccNo,AcctName,Balance)
+Foreign key(decAccNo) references Account
+
+
+Conversion rules..
+-------------------------
+Use the entity type rule to convert the entity type.
+Use the 1-M relationship rule for the decomposed relationship.
